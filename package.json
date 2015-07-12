@@ -1,0 +1,11 @@
+{
+  "name": "ideabox-reactv2",
+  "version": "1.0.0",
+  "description": "Code for a React/testing workshop.",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Will Faurot",
+  "license": "MIT"
+}
