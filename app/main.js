@@ -1,11 +1,11 @@
 import React from 'react';
+import Ideabox from './components/Ideabox';
 
-require('./styles/app.css');
+// Static ideas until we can implement ajax stuff
+var IDEAS = [
+  {id: 1, title: 'Lorem', body: 'ipsum'},
+  {id: 2, title: 'Jon', body: 'Snow'},
+  {id: 3, title: 'Eddard', body: 'Stark'}
+];
 
-class App extends React.Component {
-  render() {
-    return <div>Hi mom!</div>
-  }
-}
-
-React.render(<App />, document.getElementById('root'));
+React.render(<Ideabox data={IDEAS} />, document.getElementById('root'));
