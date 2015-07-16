@@ -20,11 +20,16 @@
     "webpack-dev-server": "^1.8.0"
   },
   "dependencies": {
+    "body-parser": "^1.13.2",
+    "express": "^4.13.1",
+    "jquery": "^2.1.4",
     "react": "^0.13.1",
     "react-tools": "^0.13.3"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/app/components/preprocessor.js",
-    "unmockedModulePathPatterns": ["<rootDir>/node_modules/react"]
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ]
   }
 }
