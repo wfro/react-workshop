@@ -22,5 +22,9 @@
   "dependencies": {
     "react": "^0.13.1",
     "react-tools": "^0.13.3"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/app/components/preprocessor.js",
+    "unmockedModulePathPatterns": ["<rootDir>/node_modules/react"]
   }
 }
