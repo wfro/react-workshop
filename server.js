@@ -6,33 +6,33 @@ var app = express();
 
 app.set('port', (process.env.PORT || 3000));
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/ideas', function(req, res) {
   fs.readFile('ideas.json', function(err, data) {
-      res.setHeader('Content-Type', 'application/json');
-      res.send(data);
-    });
+    res.setHeader('Content-Type', 'application/json');
+    res.send(data);
+  });
 });
 
 app.post('/ideas', function(req, res) {
   fs.readFile('ideas.json', function(err, data) {
-      var ideas = JSON.parse(data);
+    var ideas = JSON.parse(data);
 
-      var newIdea = req.body;
-      newIdea.shortened = 'hi mom';
-      newIdea.createdAt = Date.now();
-      newIdea.id = ideas.length + 1;
+    var newIdea = req.body;
+    newIdea.shortened = 'hi mom';
+    newIdea.createdAt = Date.now();
+    newIdea.id = ideas.length + 1;
 
-      ideas.push(newIdea);
+    ideas.push(newIdea);
 
-      fs.writeFile('ideas.json', JSON.stringify(ideas, null, 4), function(err) {
-            res.setHeader('Content-Type', 'application/json');
-            res.send(JSON.stringify(ideas));
-          });
+    fs.writeFile('ideas.json', JSON.stringify(ideas, null, 4), function(err) {
+      res.setHeader('Content-Type', 'application/json');
+      res.send(JSON.stringify(ideas));
     });
+  });
 });
 
 app.listen(app.get('port'), function() {
