@@ -7,12 +7,16 @@ require('../styles/app.css');
 
 /**
  * DONE: Load a list of ideas dynamically from the server
- * TODO: User can create a new idea
+ * DONE: User can create a new idea
  * TODO: User can edit an idea
  * TODO: User can delete an idea
  * TODO: User can search for ideas by title
  */
 var Ideabox = React.createClass({
+  propTypes: {
+    url: React.PropTypes.string.isRequired,
+  },
+
   getInitialState() {
     return { ideas: [] };
   },

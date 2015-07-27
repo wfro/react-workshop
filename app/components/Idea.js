@@ -1,6 +1,13 @@
 var React = require('react');
 
 var Idea = React.createClass({
+  propTypes: {
+    idea: React.PropTypes.shape({
+      title: React.PropTypes.string.isRequired,
+      body: React.PropTypes.string.isRequired,
+    }).isRequired
+  },
+
   render: function() {
     var idea = this.props.idea;
 
