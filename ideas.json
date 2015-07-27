@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "title": "Lorem",
+        "body": "Ipsum"
+    },
+    {
+        "id": 2,
+        "title": "Facebook for dogs",
+        "body": "test"
+    },
+    {
+        "id": 3,
+        "title": "Catstagram",
+        "body": "I dont even know anymore"
+    },
+    {
+        "title": "asdf",
+        "body": "asdf",
+        "id": 4
+    }
+]
