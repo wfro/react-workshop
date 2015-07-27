@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/ideas', function(req, res) {
+  console.log('GET /ideas');
   fs.readFile('ideas.json', function(err, data) {
     res.setHeader('Content-Type', 'application/json');
     res.send(data);
@@ -18,12 +19,11 @@ app.get('/ideas', function(req, res) {
 });
 
 app.post('/ideas', function(req, res) {
+  console.log('POST /ideas: ', req.body);
   fs.readFile('ideas.json', function(err, data) {
     var ideas = JSON.parse(data);
 
     var newIdea = req.body;
-    newIdea.shortened = 'hi mom';
-    newIdea.createdAt = Date.now();
     newIdea.id = ideas.length + 1;
 
     ideas.push(newIdea);
