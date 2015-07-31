@@ -12,6 +12,12 @@ require('../styles/app.css');
  * TODO: User can delete an idea
  * TODO: User can search for ideas by title
  */
+
+// User clicks edit
+// Edit form appears
+// User fills out data and hits submit
+// Callback fires
+// PUT request to server
 var Ideabox = React.createClass({
   propTypes: {
     url: React.PropTypes.string.isRequired,
@@ -62,6 +68,28 @@ var Ideabox = React.createClass({
     });
   },
 
+  // TODO: Why all ideas in ideas.json having their id's reset with strings?
+  // TODO: best practice for updating ideas on the client with a POST/PUT?
+  handleEditIdea(idea) {
+    $.ajax({
+      url: `${this.props.url}/${idea.id}`,
+      dataType: 'json',
+      type: 'PUT',
+      data: idea,
+      success: (data) => {
+        console.log('data in success handler: ', data);
+        var ideas = this.state.ideas;
+        var ideaToUpdate = ideas.filter(i => i.id === data.id)[0];
+        ideaToUpdate.body = data.body;
+        ideaToUpdate.title = data.title;
+        this.setState({ ideas });
+      },
+      error: (xhr, status, err) => {
+        console.error('error updating idea');
+      }
+    });
+  },
+
   render: function() {
     return (
       <div className="container">
@@ -69,7 +97,10 @@ var Ideabox = React.createClass({
           <h1>IdeaBox</h1>
         </heading>
         <NewIdea onIdeaSubmit={this.handleIdeaSubmit} />
-        <IdeaList ideas={this.state.ideas} />
+        <IdeaList
+          ideas={this.state.ideas}
+          onEditIdea={this.handleEditIdea}
+        />
       </div>
     );
   }

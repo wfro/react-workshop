@@ -67,7 +67,8 @@ form input[type="submit"], form button {
   margin-bottom: 1em;
 }
 
-button.edit {
+button.edit,
+button.save {
   margin-right: 0.7em;
 }
 
@@ -80,7 +81,6 @@ button.cancel:hover, button.delete:hover {
 }
 
 .edit-idea-form {
-  display: none;
 }
 
 @media (min-width: 575px) {

@@ -7,8 +7,14 @@ var IdeaList = React.createClass({
   },
 
   render: function() {
-    var ideas = this.props.ideas.map(function(idea) {
-      return <Idea idea={idea} key={idea.title} />;
+    var ideas = this.props.ideas.map(idea => {
+      return (
+        <Idea
+          idea={idea}
+          key={idea.title}
+          onEditIdea={this.props.onEditIdea}
+        />
+      );
     });
 
     return (
